@@ -33,8 +33,8 @@ public class SmartphoneTest {
     }
     @Test
     public void shouldUseEquals() {
-        Smartphone first = new Smartphone(1, "Phone", 9000, "China");
-        Smartphone second = new Smartphone(1, "Phone", 9000,"China");
+        Smartphone first = new Smartphone(1, "Phone", 9000, "Xiaomi");
+        Smartphone second = new Smartphone(1, "Phone", 9000,"Xiaomi");
         assertEquals(first, second);
     }
 }

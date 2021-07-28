@@ -61,12 +61,12 @@ public class ProductManagerTest {
         Product[] actual = manager.searchBy("Redmi");
         assertArrayEquals(expected, actual);
     }
-//    @Test
-//    public void searchBy() {
-//        addAll();
-//        Product[] expected = new Product[]{};
-//        Product[] actual = manager.searchBy(null);
-//        assertArrayEquals(expected, actual);
-//    }
+    @Test
+    public void searchBy() {
+        addAll();
+        Product[] expected = new Product[]{};
+        Product[] actual = manager.searchBy(null);
+        assertArrayEquals(expected, actual);
+    }
 
 }

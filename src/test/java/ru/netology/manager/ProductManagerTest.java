@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+import ru.netology.repository.NotFoundException;
 import ru.netology.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,7 +66,25 @@ public class ProductManagerTest {
     public void searchBy() {
         addAll();
         Product[] expected = new Product[]{};
-        Product[] actual = manager.searchBy(null);
+        Product[] actual = manager.searchBy("null");
+        assertArrayEquals(expected, actual);
+    }
+
+    // Тестирование исключения
+    @Test
+    public void shouldDeleteNotExistingId(){
+        addAll();
+        assertThrows(NotFoundException.class, () -> {
+            repository.removeById(7);
+        });
+    }
+    @Test
+    public void shouldDeleteExistingId() {
+        addAll();
+        repository.removeById(5);
+
+        Product[] expected = new Product[]{first,second,third,fourth,sixth};
+        Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
 

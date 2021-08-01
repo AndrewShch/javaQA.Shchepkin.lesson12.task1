@@ -70,22 +70,4 @@ public class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-    // Тестирование исключения
-    @Test
-    public void shouldDeleteNotExistingId(){
-        addAll();
-        assertThrows(NotFoundException.class, () -> {
-            repository.removeById(7);
-        });
-    }
-    @Test
-    public void shouldDeleteExistingId() {
-        addAll();
-        repository.removeById(5);
-
-        Product[] expected = new Product[]{first,second,third,fourth,sixth};
-        Product[] actual = repository.findAll();
-        assertArrayEquals(expected, actual);
-    }
-
 }
